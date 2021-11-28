@@ -1,0 +1,9 @@
+.NavigationBar {
+    box-shadow: 0 0.55rem 0.5rem  rgb(23, 22, 33);
+    background-color: rgb(107, 99, 181);
+    position: fixed;
+    padding: 0 1rem;
+    width: 100%;
+    left: 0;
+    top: 0;
+}
