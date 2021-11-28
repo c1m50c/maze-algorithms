@@ -1,9 +1,21 @@
 .NavigationBar {
     box-shadow: 0 0.55rem 0.5rem  rgb(23, 22, 33);
     background-color: rgb(107, 99, 181);
+    align-items: center;
     position: fixed;
     padding: 0 1rem;
+    display: flex;
     width: 100%;
+    gap: 1rem;
     left: 0;
     top: 0;
+
 }
+
+.NavigationBar .ExpandMenuButtonIcon {
+    height: 100%;
+    width: 2rem;
+}
+
+.NavigationBar .ExpandMenuButtonIcon:hover { cursor: pointer; }
+.NavigationBar .ExpandMenuButtonIcon rect { fill: var(--default-light-clr); }
