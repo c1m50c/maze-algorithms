@@ -1,4 +1,4 @@
-from typing import List
+from typing import List, Tuple
 
 
 class MazeGenerator:
@@ -8,11 +8,15 @@ class MazeGenerator:
         ## Fields
         ```py
         maze: List[List[bool]] # Maze Matrix, to be mutated based on the implemented algorithm.
+        start: Tuple[int, int] # Indicies of the Maze representing the start of the Maze.
+        end: Tuple[int, int] # Indicies of the Maze representing the end of the Maze.
         ```
     """
     
     maze: List[List[bool]]
-    __slots__ = "maze"
+    start: Tuple[int, int]
+    end: Tuple[int, int]
+    __slots__ = "maze", "start", "end"
     
     def __init__(self, maze: List[List[bool]]) -> None:
         """
@@ -25,6 +29,8 @@ class MazeGenerator:
         """
         
         self.maze = maze
+        self.start = (0, 0)
+        self.end = (0, 0)
     
     def generate(self) -> None:
         """
