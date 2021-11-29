@@ -8,7 +8,7 @@ function NavigationBar() {
                 <rect x="2" y="19" width="46" height="12" />
                 <rect x="2" y="36" width="46" height="12" />
             </svg>
-            <h2>Maze Algorithms</h2>
+            <h2><strong>Maze Algorithms</strong></h2>
         </nav>
     );
 }

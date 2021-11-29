@@ -3,11 +3,14 @@
     --default-light-clr: rgb(248, 248, 248);
 }
 
+html, body {
+    position: relative;
+    height: 100%;
+    width: 100%;
+}
 
 body {
     margin: 0;
-    padding: 0 1rem;
-    position: relative;
     color: var(--default-light-clr);
     background-color: var(--default-dark-clr);
 
