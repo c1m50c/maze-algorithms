@@ -1,7 +1,6 @@
 .NavigationBar {
     background-color: rgb(107, 99, 181);
     align-items: center;
-    position: relative;
     padding: 0 1rem;
     display: flex;
     gap: 1rem;
