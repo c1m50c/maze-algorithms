@@ -1,5 +1,4 @@
 from typing import List, Tuple
-from random import randrange
 
 
 class MazeGenerator:
@@ -32,8 +31,8 @@ class MazeGenerator:
         n: int = len(maze) - 1
         
         self.maze = maze
-        self.start = (randrange(0, n), 0)
-        self.end = (randrange(0, n), n)
+        self.start = (0, 0)
+        self.end = (n, n)
     
     def generate(self) -> None:
         """
@@ -65,6 +64,14 @@ class MazeGenerator:
             result.append((i, j - 1))
         
         return result
+
+    def get_neighboring_walls(self, position: Tuple[int, int]) -> List[Tuple[int, int]]:
+        result: List[Tuple[int, int]] = self.get_neighboring_indicies(position=position)
+        return [ w for w in result if w ]
+    
+    def get_neighboring_empty(self, position: Tuple[int, int]) -> List[Tuple[int, int]]:
+        result: List[Tuple[int, int]] = self.get_neighboring_indicies(position=position)
+        return [ e for e in result if not e ]
     
     @staticmethod
     def in_bounds(position: Tuple[int, int], size: int) -> bool:
