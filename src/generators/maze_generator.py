@@ -42,6 +42,15 @@ class MazeGenerator:
         ...
     
     def get_neighboring_indicies(self, position: Tuple[int, int]) -> List[Tuple[int, int]]:
+        """
+            Returns a list containing the indicies of neighboring cells at the given `position`.
+            
+            ## Parameters
+            ```py
+            position: Tuple[int, int] # Position of Cell to get neighbors from.
+            ```
+        """
+        
         result: List[Tuple[int, int]] = [  ]
         n: int = len(self.maze) - 1
         i, j = position
@@ -59,6 +68,16 @@ class MazeGenerator:
     
     @staticmethod
     def in_bounds(position: Tuple[int, int], size: int) -> bool:
+        """
+            Returns `True` if the given `position` is within the maze matrix.
+
+            ## Parameters
+            ```py
+            position: Tuple[int, int] # Position of the Cell to check.
+            size: int # Maximum index of the maze matrix.
+            ```
+        """
+        
         x, y = position
         if x < 0 or x > size: return False
         if y < 0 or y > size: return False

@@ -6,7 +6,7 @@ BACKGROUND_COLOR: Tuple[int, int, int] = (248, 248, 248)
 WALL_COLOR: Tuple[int, int, int] = (21, 21, 21)
 
 # Maze Settings
-MAZE_SIZE: int = 32 # Maze extents = SIZE * SIZE, Maze will always be square
+MAZE_SIZE: int = 50 # Maze extents = SIZE * SIZE, Maze will always be square
 maze: List[List[bool]] = [ [True] * MAZE_SIZE for _ in range(0, MAZE_SIZE) ]
 
 # PyGame Variables
