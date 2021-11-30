@@ -32,6 +32,7 @@ def draw_maze(width: int, height: int) -> None:
 def main() -> None:
     global screen
     global clock
+    global maze
     
     pygame.display.set_caption("Maze Algorithms")
     
