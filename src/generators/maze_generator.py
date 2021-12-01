@@ -1,4 +1,5 @@
 from typing import List, Tuple
+from random import randint
 
 
 class MazeGenerator:
@@ -50,20 +51,11 @@ class MazeGenerator:
             ```
         """
         
-        result: List[Tuple[int, int]] = [  ]
         n: int = len(self.maze) - 1
         i, j = position
-        
-        if MazeGenerator.in_bounds((i + 1, j), n):
-            result.append((i + 1, j))
-        if MazeGenerator.in_bounds((i - 1, j), n):
-            result.append((i - 1, j))
-        if MazeGenerator.in_bounds((i, j + 1), n):
-            result.append((i, j + 1))
-        if MazeGenerator.in_bounds((i, j - 1), n):
-            result.append((i, j - 1))
-        
-        return result
+
+        neighbors: List[Tuple[int, int]] = [ (i + 1, j), (i - 1, j), (i, j + 1), (i, j - 1) ]
+        return [ x for x in neighbors if MazeGenerator.in_bounds(position=x, size=n) ]
 
     def get_neighboring_walls(self, position: Tuple[int, int]) -> List[Tuple[int, int]]:
         """
@@ -88,6 +80,27 @@ class MazeGenerator:
         """
         
         return [ x for x in self.get_neighboring_indicies(position=position) if not self.maze[x[0]][x[1]] ]
+
+    def get_random_neighbor(self, position: Tuple[int, int]) -> Tuple[int, int]:
+        """
+            Returns a random neighboring cell's position.
+            
+            ## Parameters
+            ```py
+            position: Tuple[int, int] # Position of cell to retrieve a random neighbor from.
+            ```
+        """
+        
+        neighbors = self.get_neighboring_indicies(position=position)
+        return neighbors[randint(0, len(neighbors) - 1)]
+    
+    def get_random_cell(self) -> Tuple[int, int]:
+        """
+            Returns a random cell's position within the generator's `maze`.
+        """
+        
+        n: int = len(self.maze) - 1
+        return (randint(0, n), randint(0, n))
     
     @staticmethod
     def in_bounds(position: Tuple[int, int], size: int) -> bool:
