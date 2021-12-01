@@ -66,12 +66,28 @@ class MazeGenerator:
         return result
 
     def get_neighboring_walls(self, position: Tuple[int, int]) -> List[Tuple[int, int]]:
-        result: List[Tuple[int, int]] = self.get_neighboring_indicies(position=position)
-        return [ w for w in result if w ]
+        """
+            Returns a list of indicies of neighboring wall cells.
+            
+            ## Parameters
+            ```py
+            position: Tuple[int, int] # Position of the cell to retrieve neighboring wall cells.
+            ```
+        """
+        
+        return [ x for x in self.get_neighboring_indicies(position=position) if self.maze[x[0]][x[1]] ]
     
     def get_neighboring_empty(self, position: Tuple[int, int]) -> List[Tuple[int, int]]:
-        result: List[Tuple[int, int]] = self.get_neighboring_indicies(position=position)
-        return [ e for e in result if not e ]
+        """
+            Returns a list of indicies of neighboring empty cells.
+            
+            ## Parameters
+            ```py
+            position: Tuple[int, int] # Position of the cell to retrieve neighboring empty cells.
+            ```
+        """
+        
+        return [ x for x in self.get_neighboring_indicies(position=position) if not self.maze[x[0]][x[1]] ]
     
     @staticmethod
     def in_bounds(position: Tuple[int, int], size: int) -> bool:
