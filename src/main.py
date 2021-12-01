@@ -1,3 +1,4 @@
+from generators.depth_first_search import DepthFirstSearchMG
 from generators.maze_generator import MazeGenerator
 
 from typing import List, Tuple, Union
@@ -14,7 +15,7 @@ MAZE_SIZE: int = 50 # Maze extents = SIZE * SIZE, Maze will always be square
 maze: List[List[bool]] = [ [True] * MAZE_SIZE for _ in range(0, MAZE_SIZE) ]
 
 # PyGame Variables
-screen = pygame.display.set_mode((800, 800))
+screen = pygame.display.set_mode((600, 600))
 clock = pygame.time.Clock()
 
 
@@ -37,7 +38,7 @@ def main() -> None:
     global maze
     
     pygame.display.set_caption("Maze Algorithms")
-    generator: Union[MazeGenerator, None] = None
+    generator: Union[MazeGenerator, None] = DepthFirstSearchMG(maze=maze)
     
     if generator:
         generator.generate()
